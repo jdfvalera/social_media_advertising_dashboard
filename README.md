@@ -52,7 +52,7 @@ Campaign-level metrics and trends:
 
 ---
 
-## Setup Instructions (Beginner Friendly)
+## Setup Instructions
 
 ### 1. Install Python
 Download Python 3.10+ from:
@@ -63,3 +63,49 @@ Ensure **“Add Python to PATH”** is checked during installation.
 Verify:
 ```bash
 python --version
+```
+
+---
+
+### 2. Install Dependencies
+From the project directory:
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 3. Run the Dashboard
+```bash
+streamlit run app.py
+```
+
+The dashboard will open automatically in your browser.
+
+---
+
+## Updating or Replacing the Data
+
+To update or extend the dashboard:
+- Edit `data/Social_Media_Advertising.csv`
+- Append new rows or replace the file entirely
+- Keep column names consistent
+
+No code changes are required.
+
+---
+
+## Calculated Metrics
+
+The following metrics are calculated automatically in the app:
+- **CTR** = Clicks / Impressions
+- **Estimated Conversions** = Clicks × Conversion Rate
+- **CPC** = Acquisition Cost / Clicks
+- **Cost per Conversion** = Acquisition Cost / Estimated Conversions
+
+---
+
+## Notes
+
+This project is intentionally lightweight and opinionated.
+It reflects how I typically explore data, frame insights, and communicate results to stakeholders.
