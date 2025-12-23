@@ -2,17 +2,13 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# --------------------------------------------------
 # PAGE CONFIG
-# --------------------------------------------------
 st.set_page_config(
     page_title="Marketing Campaign Dashboard",
     layout="wide"
 )
 
-# --------------------------------------------------
 # DATA LOADING
-# --------------------------------------------------
 @st.cache_data
 def load_data(path):
     df = pd.read_csv(path)
@@ -35,9 +31,7 @@ def load_data(path):
 
 df = load_data("data/Social_Media_Advertising.csv")
 
-# --------------------------------------------------
 # SIDEBAR FILTERS
-# --------------------------------------------------
 st.sidebar.title("Filters")
 
 date_range = st.sidebar.date_input(
@@ -78,9 +72,7 @@ filtered_df = df[
     (df["Target_Audience"].isin(audience))
 ]
 
-# --------------------------------------------------
 # PAGE NAVIGATION
-# --------------------------------------------------
 page = st.sidebar.radio(
     "Page",
     [
@@ -91,9 +83,7 @@ page = st.sidebar.radio(
     ]
 )
 
-# --------------------------------------------------
 # EXECUTIVE OVERVIEW
-# --------------------------------------------------
 if page == "Executive Overview":
     st.title("Executive Overview")
 
@@ -137,9 +127,7 @@ if page == "Executive Overview":
     )
     st.plotly_chart(fig, use_container_width=True)
 
-# --------------------------------------------------
 # AUDIENCE & ENGAGEMENT
-# --------------------------------------------------
 elif page == "Audience & Engagement":
     st.title("Audience & Engagement")
 
@@ -174,9 +162,7 @@ elif page == "Audience & Engagement":
         )
         st.plotly_chart(fig, use_container_width=True)
 
-# --------------------------------------------------
 # EFFICIENCY & RISK
-# --------------------------------------------------
 elif page == "Efficiency & Risk":
     st.title("Efficiency & Risk")
 
@@ -209,9 +195,7 @@ elif page == "Efficiency & Risk":
     )
     st.plotly_chart(fig, use_container_width=True)
 
-# --------------------------------------------------
 # CAMPAIGN DEEP DIVE
-# --------------------------------------------------
 elif page == "Campaign Deep Dive":
     st.title("Campaign Deep Dive")
 
